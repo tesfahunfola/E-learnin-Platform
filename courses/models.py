@@ -14,7 +14,7 @@ class Course(models.Model):
     owner = models.ForeignKey(User,
                               related_name='courses_created',
                               on_delete=models.CASCADE)
-    Subject = models.ForeignKey(Subject,
+    subject = models.ForeignKey(Subject,
                                 related_name='courses',
                                 on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
@@ -28,7 +28,7 @@ class Course(models.Model):
         return self.title
 
 class Module(models.Model):
-    Course = models.ForeignKey(Course,
+    course = models.ForeignKey(Course,
                                related_name='modules',
                                on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
